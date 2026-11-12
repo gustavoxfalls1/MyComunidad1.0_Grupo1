@@ -3,45 +3,33 @@ package com.example.mycomunidad10_grupo1
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.mycomunidad10_grupo1.ui.theme.MyComunidad10_Grupo1Theme
+import androidx.core.view.WindowCompat // Necesario para edge-to-edge
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mycomunidad10_grupo1.ui.screens.PostScreen
+import com.example.mycomunidad10_grupo1.viewmodel.PostViewModel
+
+//import com.example.apirest.ui.theme.ApiRestTheme
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        // Permite que la app dibuje contenido debajo de las barras del sistema
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        // Aquí inicia Jetpack Compose
         setContent {
-            MyComunidad10_Grupo1Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+
+            // Aplicamos el tema Material 3
+            //  ApiRestTheme {
+
+            // Inyectamos el ViewModel
+            val postViewModel: PostViewModel = viewModel()
+
+            // Llamamos a la pantalla principal y pasamos el ViewModel
+            PostScreen(viewModel = postViewModel)
+            //   }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyComunidad10_Grupo1Theme {
-        Greeting("Android")
     }
 }

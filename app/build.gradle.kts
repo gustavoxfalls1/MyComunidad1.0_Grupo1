@@ -41,19 +41,32 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
 
+    // Jetpack Compose y Material 3 (versión 2025)
+    implementation("androidx.activity:activity-compose:1.9.0")
+    implementation("androidx.compose.material3:material3:1.3.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+    // Retrofit y Gson Converter
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+    // Corrutinas para trabajo asincrónico
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+
+
     // Kotest
-    testImplementation("io.kotest: kotest-runner-junit5:5.8.0")
-    testImplementation("io.kotest : kotest-assertions-core:5.8.0")
+    testImplementation("io.kotest:kotest-runner-junit5:5.8.0")
+    testImplementation("io.kotest:kotest-assertions-core:5.8.0")
 
-   // JUnit 5
-    testImplementation("org. junit.jupiter:junit-jupiter:5.10.0")
+    // JUnit 5
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
 
-    // MOCkK
-    testImplementation ("i0.mockk:mockk:1.13.10")
+    // MockK
+    testImplementation("io.mockk:mockk:1.13.10")
 
-   // Compose UI Test
+    // Compose UI Test
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.6.2")
-    debugImplementation ( "androidx . compose. vi:vi-test-manifest: 1.6.2")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.2")
 
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
